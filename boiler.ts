@@ -21,11 +21,10 @@ export const prompt: PromptBoiler = async () => {
 export const install: ActionBoiler = async () => {
   const actions: BoilerAction[] = []
 
-  // actions.push({
-  //   action: "npmInstall",
-  //   dev: true,
-  //   source: ["some-package"],
-  // })
+  actions.push({
+    action: "npmInstall",
+    source: ["fs-extra"],
+  })
 
   return actions
 }
@@ -45,11 +44,17 @@ export const uninstall: ActionBoiler = async () => {
 export const generate: ActionBoiler = async () => {
   const actions: BoilerAction[] = []
 
-  // actions.push({
-  //   action: "write",
-  //   path: "src/someName.ts",
-  //   sourcePath: "tsignore/someName.ts",
-  // })
+  actions.push({
+    action: "write",
+    path: "src/files.ts",
+    sourcePath: "tsignore/files.ts",
+  })
+
+  actions.push({
+    action: "write",
+    path: "test/files.spec.ts",
+    sourcePath: "tsignore/files.spec.ts",
+  })
 
   return actions
 }
