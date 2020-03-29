@@ -9,7 +9,7 @@ export class Files {
     const [dirs, files] = await this.ls(dir)
 
     await Promise.all(
-      dirs.map(async dirName => {
+      dirs.map(async (dirName) => {
         await this.nestedFiles(join(dir, dirName), allFiles)
       })
     )
@@ -28,7 +28,7 @@ export class Files {
     const files = []
 
     await Promise.all(
-      names.map(async name => {
+      names.map(async (name) => {
         const isDir = (
           await stat(join(path, name))
         ).isDirectory()
